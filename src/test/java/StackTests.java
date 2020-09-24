@@ -70,4 +70,30 @@ public class StackTests {
         assertEquals(3,result);
         assertEquals(2,sut.getSize());
     }
+
+    @Test
+    public void push_ShouldReturnOne_WhenAddOneItem() {
+        //Arrange
+        Stack sut = new Stack();
+
+        //Act
+        int pushed = sut.push(1);
+
+        //Verify
+        assertEquals(1, pushed);
+        assertEquals(1, sut.getSize());
+    }
+
+    @Test
+    public void push_ShouldReturnTwo_WhenAddTwoItem() {
+        // Arrange
+        Stack sut = new Stack();
+
+        // Act
+        sut.push(99);
+        sut.push(55);
+
+        // Verify
+        assertEquals(2, sut.getSize());
+    }
 }
