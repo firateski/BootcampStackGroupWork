@@ -64,4 +64,26 @@ public class Stack {
         lastNode.setNext(newNode);
         return newNode.getValue();
     }
+
+    public int peek() {
+        Node lastNode = getLastNode();
+
+        if(lastNode == null){
+            throw new IllegalArgumentException("Stack is empty!");
+        }
+
+        return lastNode.getValue();
+    }
+
+    private Node getLastNode(){
+        if(rootNode == null) return null;
+
+        Node currentNode = rootNode;
+
+        while (!Objects.isNull(currentNode.getNext())){
+            currentNode = currentNode.getNext();
+        }
+
+        return  currentNode;
+    }
 }
