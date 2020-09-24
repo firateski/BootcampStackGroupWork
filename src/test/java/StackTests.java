@@ -96,4 +96,41 @@ public class StackTests {
         // Verify
         assertEquals(2, sut.getSize());
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void peek_ShouldThrowError_WhenStackIsEmpty() {
+        // Arrange
+        Stack sut = new Stack();
+
+        // Act
+        sut.peek();
+    }
+
+    @Test
+    public void peek_ShouldReturnFirstItem_WhenStackHasOnlyOneItem(){
+        // Arrange
+        Stack sut = new Stack();
+        sut.push(1);
+
+        // Act
+        int output = sut.peek();
+
+        // Verify
+        assertEquals(1, output);
+    }
+
+    @Test
+    public void peek_ShouldReturnLastItem_WhenStackHasMoreThanOneItem(){
+        // Arrange
+        Stack sut = new Stack();
+        sut.push(1);
+        sut.push(2);
+        sut.push(3);
+
+        // Act
+        int output = sut.peek();
+
+        // Verify
+        assertEquals(3, output);
+    }
 }
