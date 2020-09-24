@@ -45,4 +45,23 @@ public class Stack {
 
         return removed;
     }
+
+    public int push(int item) {
+        Node lastNode = getLastNode();
+
+        if(Objects.isNull(lastNode)){
+            Node newNode = new Node();
+            newNode.setValue(item);
+            rootNode = newNode;
+            return newNode.getValue();
+        }
+
+        Node newNode = new Node();
+        newNode.setValue(item);
+        newNode.setPrevious(lastNode);
+        newNode.setNext(null);
+
+        lastNode.setNext(newNode);
+        return newNode.getValue();
+    }
 }
